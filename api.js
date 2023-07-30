@@ -20,6 +20,10 @@ async function updateProductDetails() {
 
         const sizeSelectionDiv = document.getElementById('sizeSelection');
         sizeSelectionDiv.innerHTML = '';
+
+        const selectedSizeDisplay = document.querySelector('.selected-size');
+
+
         productInfo.sizeOptions.forEach((option) => {
             const label = document.createElement('label');
             const input = document.createElement('input');
@@ -35,6 +39,12 @@ async function updateProductDetails() {
             label.appendChild(input);
             label.appendChild(sizeBox);
             sizeSelectionDiv.appendChild(label);
+        });
+        const radioButtons = document.querySelectorAll('input[name="size"]');
+        radioButtons.forEach((radio) => {
+            radio.addEventListener('click', () => {
+                selectedSizeDisplay.textContent = radio.value;
+            });
         });
     }
 }

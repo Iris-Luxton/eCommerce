@@ -34,16 +34,17 @@ function addItemToCart() {
             quantity: 1,
         });
     }
-
     updateCartItemCount();
 }
 
 // Function to update the cart item count in the header
 function updateCartItemCount() {
-    const cartItemCountElement = document.getElementById('cart-item-count');
+    const cartItemCountElements = document.querySelectorAll('.cart-item-count');
     const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-    cartItemCountElement.textContent = cartItemCount;
-}
+    cartItemCountElements.forEach((element) => {
+      element.textContent = cartItemCount;
+    });
+  }
 
 // Function to toggle the cart dropdown
 function toggleCartDropdown() {
@@ -65,8 +66,8 @@ function displayCartItems() {
         const itemImageDiv = document.createElement('div');
         itemImageDiv.classList.add('item-image');
         const itemImage = document.createElement('img');
-        itemImage.src = item.imageURL; // Set the image URL, you need to get this from the productInfo
-        itemImage.alt = item.title; // Set the alt text for accessibility
+        itemImage.src = item.imageURL;
+        itemImage.alt = item.title;
         itemImageDiv.appendChild(itemImage);
 
         // Create a div to hold the item details
@@ -75,32 +76,30 @@ function displayCartItems() {
 
         // Item title
         const itemTitle = document.createElement('div');
-        itemTitle.classList.add('item-title'); // Add the 'item-title' class for styling
+        itemTitle.classList.add('item-title');
         itemTitle.textContent = item.title;
         itemDetailsDiv.appendChild(itemTitle);
 
- // Create a div to hold the item quantity and price
- const itemQuantityPrice = document.createElement('div');
- itemQuantityPrice.classList.add('item-quantity-price'); // Add the 'item-quantity-price' class for styling
+        // Create a div to hold the item quantity and price
+        const itemQuantityPrice = document.createElement('div');
+        itemQuantityPrice.classList.add('item-quantity-price'); 
 
- // Item quantity
- const itemQuantity = document.createElement('span');
- itemQuantity.classList.add('item-quantity'); // Add the 'item-quantity' class for styling
- itemQuantity.textContent = `${item.quantity}x `;
- itemQuantityPrice.appendChild(itemQuantity);
+        // Item quantity
+        const itemQuantity = document.createElement('span');
+        itemQuantity.classList.add('item-quantity'); 
+        itemQuantity.textContent = `${item.quantity}x `;
+        itemQuantityPrice.appendChild(itemQuantity);
 
- // Item price
- const itemPrice = document.createElement('span');
- itemPrice.classList.add('item-price'); // Add the 'item-price' class for styling
- itemPrice.textContent = `$${(item.price).toFixed(2)}`;
- itemQuantityPrice.appendChild(itemPrice);
-
- itemDetailsDiv.appendChild(itemQuantityPrice);
-
+        // Item price
+        const itemPrice = document.createElement('span');
+        itemPrice.classList.add('item-price'); 
+        itemPrice.textContent = `$${(item.price).toFixed(2)}`;
+        itemQuantityPrice.appendChild(itemPrice);
+        itemDetailsDiv.appendChild(itemQuantityPrice);
 
         // Item size
         const itemSize = document.createElement('div');
-        itemSize.classList.add('item-size'); // Add the 'item-size' class for styling
+        itemSize.classList.add('item-size'); 
         itemSize.textContent = `Size: ${item.size}`;
         itemDetailsDiv.appendChild(itemSize);
 
@@ -118,9 +117,6 @@ function displayCartItems() {
         cartDropdown.appendChild(emptyCartMsg);
     }
 }
-
-// Event listener for adding item to cart
-document.getElementById('addToCartButton').addEventListener('click', addItemToCart);
 
 // Event listener for window load to update product details and cart item count
 window.onload = () => {
