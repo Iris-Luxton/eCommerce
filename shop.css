@@ -1,14 +1,17 @@
 html {
   font-family: 'Noto Sans', sans-serif;
 }
+
 /* Header styles */
 header.grey-bar {
   background-color: #F6F6F7;
   height: 2rem;
   margin: 1.5rem auto;
-  position: relative; /* Add position relative to the header */
+  position: relative;
+  /* Add position relative to the header */
 
 }
+
 button.btn {
   position: relative;
   background-color: #F6F6F7;
@@ -16,36 +19,77 @@ button.btn {
   border: none;
   font-size: 0.7rem;
 }
+
 button.btn:hover {
   position: relative;
   background-color: #F6F6F7;
   color: #000000;
-  border: 1px solid  #CCCCCC;
+  border: 1px solid #CCCCCC;
   font-size: 0.7rem;
 }
+
 .btn span {
   font-size: 0.7rem;
 }
+
 /* Dropdown content */
-.dropdown-menu {
-  position: absolute;
-  background-color: white;
-  border: 1px solid #CCCCCC;
+li.cart-item {
+  padding: 1rem 10rem 1rem 1rem;
+  border-bottom: 1px solid #e1e1e1;
+  display: flex;
+  flex-direction: row;
 }
 
+.item-image {
+  min-width: 5rem;
+  min-height: 7rem;
+}
+
+.item-image img {
+  max-width: 100%;
+  max-height: 100%; /* Set the maximum height for the item image */
+}
+.item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 2rem;
+  font-size: small;
+}
+
+/* Additional styles for the item title, quantity, and price */
+.item-quantity-price {
+  margin-top: 0.5rem;
+}
+
+.item-price {
+  font-weight: bold;
+  font-size: small;
+}
+
+.item-size {
+  padding-top: 0.7rem;
+  font-size: small;
+}
 /* Main styles */
 h5 {
-  padding-bottom: 10px; /* Add padding to create space around child elements */
+  padding-bottom: 10px;
+  /* Add padding to create space around child elements */
 }
+
 h6 {
   padding-top: 2px;
-  padding-bottom: 5px; /* Add padding to create space around child elements */
+  padding-bottom: 5px;
+  /* Add padding to create space around child elements */
 }
+
 p {
   padding-top: 20px;
   font-size: smaller;
   color: #888888;
 }
+
 hr {
   margin: 5px 0 !important;
   border-top: 1px solid #CCCCCC !important;
@@ -55,21 +99,25 @@ hr {
   height: 100%;
   padding-top: 20px;
 }
+
 /* Font color for specific elements */
 .size-label {
   color: #888888;
   margin-top: 10px;
   display: inline-block;
 }
+
 .size-text {
   color: #888888;
   font-size: smaller;
   font-weight: bold;
 }
+
 /* Required star */
 .required {
   color: #C90000;
 }
+
 .size-box {
   width: 2.5rem;
   height: 2.5rem;
@@ -82,6 +130,7 @@ hr {
   margin-right: 10px;
   cursor: pointer;
 }
+
 .size-box:hover {
   border: 2px solid #222222;
   color: #222222;
@@ -90,17 +139,20 @@ hr {
 .size-selection {
   margin-top: 20px;
 }
+
 /* Hide the default radio button and use custom styles */
 .size-selection input[type="radio"] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
+
 /* Show a custom indicator when the radio button is checked */
 .size-selection input[type="radio"]:checked+.size-box {
   border: 2px solid #222222;
   color: #222222;
 }
+
 .item-card button {
   background-color: #fff;
   color: #222222;
@@ -109,6 +161,7 @@ hr {
   cursor: pointer;
   font-family: 'Noto Sans', sans-serif;
 }
+
 .item-card button:hover {
   background-color: #222222;
   color: #fff;
@@ -126,36 +179,70 @@ No media query for `xs` since this is the default in Bootstrap */
   button.screen {
     display: none;
   }
+
   header.grey-bar {
     max-width: 93%;
   }
-  main{
+
+  main {
     padding: 0 6%;
   }
+
   button.mobile {
     color: #888888;
     font-size: 0.7rem;
     padding-left: 80%;
   }
+
   h5 {
-    padding-bottom: 10px; 
+    padding-bottom: 10px;
     padding-top: 20px;
   }
+
+  .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    /* Set the desired max height for the dropdown */
+    right: 20px;
   }
+
+  li {
+    max-width: 12.5rem;
+    max-height: 15rem;
+  }
+  
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   header.grey-bar {
     max-width: 90%;
   }
+
   button.mobile {
-  display: none;
+    display: none;
   }
+  .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    right: 47%;
+  }
+
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   header.grey-bar {
     max-width: 90%;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    right: 49%;
   }
 }
 
@@ -164,11 +251,23 @@ No media query for `xs` since this is the default in Bootstrap */
   header.grey-bar {
     max-width: 90%;
   }
+  .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    right: 50%;
+  }
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
   header.grey-bar {
     max-width: 90%;
+  }
+  .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    right: 73%;
   }
 }
